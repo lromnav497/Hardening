@@ -62,6 +62,8 @@ status: Published
    4. **CD/DVD**
 3. Guarda los cambios y reinicia.
 
+![secure-boot](./img/image-4.png)
+
 ![orden-arranque](./img/image-3.png)
 
 ---
