@@ -2,7 +2,7 @@
 
 ---
 
-➡️ **Guía pública en GitHub Pages:**
+**Guía en GitHub Pages:**
 [https://tuusuario.github.io/bios-debian-hardening/debian-boot-hardening](https://tuusuario.github.io/bios-debian-hardening/debian-boot-hardening)
 
 ---
