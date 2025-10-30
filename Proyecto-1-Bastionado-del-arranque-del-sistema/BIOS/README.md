@@ -3,6 +3,6 @@
 ---
 
 **Guía en GitHub Pages:**
-[https://tuusuario.github.io/bios-debian-hardening/bios-hardening](https://tuusuario.github.io/bios-debian-hardening/bios-hardening)
+[https://lromnav497.github.io/Hardening/Proyecto-1-Bastionado-del-arranque-del-sistema/BIOS/Guia-BIOS](https://lromnav497.github.io/Hardening/Proyecto-1-Bastionado-del-arranque-del-sistema/BIOS/Guia-BIOS)
 
 ---
