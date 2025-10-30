@@ -63,6 +63,7 @@ status: Published
 3. Guarda los cambios y reinicia.
 
 ![orden-arranque](./img/image-3.png)
+
 ---
 
 ## Paso 5: Activar opciones adicionales de seguridad
