@@ -1,0 +1,24 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2025-10-30T09:52:03+01:00",
+  "id": "Guia-BIOS",
+  "duration": 0,
+  "title": "Bastionado de BIOS/UEFI",
+  "summary": "Guia BIOS/UEFI",
+  "source": "bios.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "codelab",
+    "markdown"
+  ],
+  "tags": [
+    "web"
+  ],
+  "url": "Guia-BIOS"
+}

@@ -1,0 +1,118 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Bastionado de BIOS/UEFI</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="Guia-BIOS"
+                  title="Bastionado de BIOS/UEFI"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Paso 1: Establecer contraseña de usuario" duration="0">
+        <h2 is-upgraded>Pasos:</h2>
+<ol type="1">
+<li>Reinicia el equipo y accede a la BIOS/UEFI pulsando la tecla (normalmente <code>F2</code>, <code>DEL</code>, <code>ESC</code> o <code>F10</code>).</li>
+<li>Busca la sección Seguridad o Contraseña.</li>
+<li>Localiza la opción Contraseña de usuario (Power-On Password).</li>
+<li>Introduce una contraseña segura (mínimo 10 caracteres, combinando letras, números y símbolos).</li>
+<li>Guarda los cambios con <code>F10</code> y reinicia. <img alt="contraseña-usuario" src="img\\fca5b8b04f5d979.png"></li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Paso 2: Configurar contraseña de administrador" duration="0">
+        <h2 is-upgraded>Pasos:</h2>
+<ol type="1">
+<li>Entra en la BIOS/UEFI.</li>
+<li>Dirígete a Seguridad -&gt; Establecer contraseña del supervisor.</li>
+<li>Introduce una contraseña diferente a la del arranque para mayor seguridad.</li>
+<li>Guarda los cambios.</li>
+</ol>
+<p class="image-container"><img alt="contraseña-supervisor" src="img\\33b36f5539a97537.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Paso 3: Deshabilitar arranques externos" duration="0">
+        <h2 is-upgraded>Pasos:</h2>
+<ol type="1">
+<li>En el menú principal, entra a Devices -&gt; USB Setup.</li>
+<li>Desactiva las siguientes opciones: <ul>
+<li><code>USB Boot</code></li>
+<li><code>CD/DVD Boot</code></li>
+<li><code>Network Boot (PXE)</code></li>
+</ul>
+</li>
+<li>Mantén habilitado únicamente el disco duro interno.</li>
+<li>Guarda los cambios (<code>F10</code>).</li>
+</ol>
+<p class="image-container"><img alt="desactivar-entradas" src="img\\c9f5b8bdda1ff598.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Paso 4: Establecer un orden de arranque seguro" duration="0">
+        <h2 is-upgraded>Pasos:</h2>
+<ol type="1">
+<li>Entra en la pestaña Startup -&gt; Boot Priority**.</li>
+<li>Configura el orden siguiente: <ol type="1">
+<li><strong>Internal HDD/SSD</strong></li>
+<li><strong>Network (opcional)</strong></li>
+<li><strong>USB</strong></li>
+<li><strong>CD/DVD</strong></li>
+</ol>
+</li>
+<li>Guarda los cambios y reinicia.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Paso 5: Activar opciones adicionales de seguridad" duration="0">
+        <h2 is-upgraded>Secure Boot</h2>
+<p>Security -&gt; Secure Boot</p>
+<p class="image-container"><img alt="secure-boot" src="img\\80765b76225f7193.png"></p>
+<p class="image-container"><img alt="secure-boot2" src="img\\75ccc720d2cec382.png"></p>
+<h2 is-upgraded>TPM (Trusted Platform Module)</h2>
+<p>Security -&gt; TCG Feature Setup</p>
+<p class="image-container"><img alt="tpm" src="img\\aa0a9b2c5b4de23b.png"></p>
+<h2 is-upgraded>Desactivar Virtualización (si no se usa)</h2>
+<p>Advanced -&gt; CPU Setup -&gt; Intel(R) Virtualization Technology</p>
+<p class="image-container"><img alt="Virtualizacion" src="img\\e5e3b36112d11032.png"></p>
+<h2 is-upgraded>Desactivar Wake-on-LAN</h2>
+<p>Power -&gt; Automatic Power On</p>
+<p class="image-container"><img alt="wake-on-lan" src="img\\e11391fbdd2f169f.png"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
