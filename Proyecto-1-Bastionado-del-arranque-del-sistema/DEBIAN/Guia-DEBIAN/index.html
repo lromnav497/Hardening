@@ -1,0 +1,97 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Bastionado del arranque en Debian</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="Guia-DEBIAN"
+                  title="Bastionado del arranque en Debian"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Paso 1: Ocultar el menú de arranque" duration="0">
+        <h2 is-upgraded>Pasos:</h2>
+<ol type="1">
+<li>Edita el archivo de configuración principal de GRUB:sudo nano /etc/default/grub</li>
+<li>Localiza y modifica las siguientes líneas:GRUB_TIMEOUT_STYLE=hidden GRUB_TIMEOUT=0</li>
+<li>Guarda los cambios (<code>Ctrl + O</code>, <code>Enter</code>, <code>Ctrl + X</code>).</li>
+</ol>
+<p class="image-container"><img alt="grub" src="img\\906ccc194c555b67.png"></p>
+<ol type="1" start="4">
+<li>Aplica los cambios:sudo update-grub</li>
+</ol>
+<p class="image-container"><img alt="update-grub" src="img\\a67cc7c52fb2386e.png"></p>
+<ol type="1" start="5">
+<li>Reinicia el sistema para verificar:sudo reboot</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Paso 2: Configurar una contraseña en el GRUB" duration="0">
+        <h2 is-upgraded>Pasos:</h2>
+<ol type="1">
+<li>Genera una contraseña cifrada:sudo grub-mkpasswd-pbkdf2Introduce tu contraseña y copia el resultado completo, por ejemplo:PBKDF2 hash of your password is grub.pbkdf2.sha512.10000.XXXXXXXXXXXXXXXXXXXX</li>
+</ol>
+<p class="image-container"><img alt="sha" src="img\\cf067cc3df57b1cf.png"></p>
+<ol type="1" start="2">
+<li>Edita el archivo <code>/etc/grub.d/40_custom</code>:sudo nano /etc/grub.d/40_custom</li>
+<li>Añade las siguientes líneas (sustituye el hash por el tuyo):set superusers=&#34;admin&#34; password_pbkdf2 admin grub.pbkdf2.sha512.10000.XXXXXXXXXXXXXXXXXXXX</li>
+</ol>
+<p class="image-container"><img alt="superuses" src="img\\e8bf11603939db92.png"></p>
+<ol type="1" start="4">
+<li>Actualiza el GRUB:sudo update-grub</li>
+<li>Reinicia el sistema. Ahora, si intentas editar opciones de arranque, se solicitará la contraseña.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Paso 3: Crear una copia de seguridad de la configuración del arranque" duration="0">
+        <h2 is-upgraded>Pasos:</h2>
+<ol type="1">
+<li>Copia el archivo principal del GRUB:sudo cp /boot/grub/grub.cfg /boot/grub/grub.cfg.backup</li>
+<li>Guarda también los scripts personalizados:sudo tar czvf /root/grub-backup-$(date +%F).tar.gz /etc/default/grub /etc/grub.d/</li>
+<li>(Opcional) Copia el archivo a otro medio seguro:sudo cp /root/grub-backup-*.tar.gz /media/usb/</li>
+</ol>
+<p class="image-container"><img alt="backup" src="img\\561dd2d4c29eed84.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Paso 4: Aplicar otras medidas de seguridad" duration="0">
+        <h2 is-upgraded>Restringir permisos de /boot</h2>
+<p>sudo chmod -R 700 /boot</p>
+<p class="image-container"><img alt="chmod" src="img\\8e845c30a820caf8.png"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

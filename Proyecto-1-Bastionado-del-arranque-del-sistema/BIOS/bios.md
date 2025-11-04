@@ -90,6 +90,4 @@ Power -> Automatic Power On
 
 ![wake-on-lan](./img/image-8.png)
 
-<a class="done" href="https://lromnav497.github.io/Hardening">Done</a>
-
 ---

@@ -1,6 +1,6 @@
 author: Luis Carlos Romero
 summary: Guia DEBIAN
-id: Guia-BIOS
+id: Guia-DEBIAN
 categories: codelab,markdown
 environments: Web
 status: Published
@@ -24,9 +24,13 @@ status: Published
 
 3. Guarda los cambios (`Ctrl + O`, `Enter`, `Ctrl + X`).
 
+![grub](img/image.png)
+
 4. Aplica los cambios:
 
    sudo update-grub   
+
+![update-grub](img/image-1.png)
 
 5. Reinicia el sistema para verificar:
 
@@ -46,14 +50,18 @@ status: Published
    
    PBKDF2 hash of your password is grub.pbkdf2.sha512.10000.XXXXXXXXXXXXXXXXXXXX
 
+![sha](img/image-2.png)
+
 2. Edita el archivo `/etc/grub.d/40_custom`:
 
    sudo nano /etc/grub.d/40_custom
-   
+
 3. Añade las siguientes líneas (sustituye el hash por el tuyo):
    
    set superusers="admin"
    password_pbkdf2 admin grub.pbkdf2.sha512.10000.XXXXXXXXXXXXXXXXXXXX
+
+![superuses](img/image-3.png)
 
 4. Actualiza el GRUB:
    
@@ -79,26 +87,16 @@ status: Published
    
    sudo cp /root/grub-backup-*.tar.gz /media/usb/
 
+![backup](img/image-4.png)
+
 ---
 
 ## Paso 4: Aplicar otras medidas de seguridad
-
-### Activar Secure Boot (si UEFI)
-
-* **Verifica si está habilitado:**
-  
-  mokutil --sb-state
-  
-* Si aparece como *disabled*, actívalo desde la BIOS/UEFI en `Boot → Secure Boot → Enabled`.
 
 ### Restringir permisos de /boot
 
 sudo chmod -R 700 /boot
 
-### Firmar el kernel manualmente (opcional avanzado)
-
-Para entornos UEFI con Secure Boot, puedes firmar tu kernel:
-
-sudo sbsign --key MOK.key --cert MOK.crt /boot/vmlinuz-$(uname -r)
+![chmod](img/image-5.png)
 
 ---
